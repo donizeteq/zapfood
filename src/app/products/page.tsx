@@ -7,6 +7,7 @@ const ProductsPage = () => {
         <Button>ZAPFOOD</Button>
         <Input placeholder="Bora rodar somosum%"/>
     </div>);
+    
 }
  
 export default ProductsPage;
