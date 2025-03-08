@@ -23,8 +23,7 @@ type MenuCategoriesWithProducts = Prisma.MenuCategoryGetPayload<{
 }>;
 
 const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
-    const [selectedCategory, setSelectedcategory] = useState<MenuCategoriesWithProducts>(restaurant.menuCategories[0],
-        );
+    const [selectedCategory, setSelectedcategory] = useState<MenuCategoriesWithProducts>(restaurant.menuCategories[0]);
         
     const handleCategoryClick = (category: MenuCategoriesWithProducts) => {
         setSelectedcategory(category)
@@ -33,7 +32,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
         return selectedCategory.id === category.id ? "default" : "secondary"
     }
     return ( 
-        <div className="relative z-50 mt-[-1.5rem] rounded-t-3xl bg-white overflow-hidden">
+        <div className="relative z-50 mt-[-1.5rem] rounded-t-3xl bg-white">
             <div className="p-5">
                 <div className="flex items-center gap-3">
                 <Image 
@@ -53,7 +52,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
                 <p>Aberto!</p>
             </div>
             </div>
-            <ScrollArea className="w-full overflow-x-hidden">
+            <ScrollArea className="w-full">
                 <div className="flex w-max space-x-4 p-4 pt-0">
 {restaurant.menuCategories.map(category => (
     <Button onClick={() => handleCategoryClick(category)} key={category.id} variant={

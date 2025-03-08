@@ -42,5 +42,14 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-  }
+      }
+}
+/* Adicione isso ao seu arquivo CSS global */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem no Webkit (Chrome, Safari) */
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* Oculta a barra de rolagem no IE e Edge */
+    scrollbar-width: none;  /* Oculta a barra de rolagem no Firefox */
 }
