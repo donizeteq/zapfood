@@ -1,7 +1,7 @@
-import { Product } from "@prisma/client";
+import { ConsumptionMethod, Product } from "@prisma/client";
 import Link from "next/link";
 import Image from 'next/image';
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { formatCurrency } from "@/helpers/format-currency";
 
 interface ProductsProps {
@@ -9,13 +9,15 @@ interface ProductsProps {
 }
 
 const Products = ({ products }: ProductsProps) => {
-    const {slug} = useParams<{ slug: string }>()
+    const { slug } = useParams<{ slug: string }>();
+    const searchParams = useSearchParams();
+    const consumptionMethod = searchParams.get("consumptionMethod");
     return ( 
         <div className="space-y-3 px-5 overflow-y-scroll max-h-[400px] scrollbar-hide">
             {products.map((product: Product) => (
                 <Link
                 key={product.id}
-                href={`/${slug}/menu/${product.id}`}
+                href={`/${slug}/menu/${product.id}?consumptionMethod=${consumptionMethod}`}
                 className="flex items-center justify-between gap-10 border-b py-3"
                 >
                 {/* ESQUERDA */}
