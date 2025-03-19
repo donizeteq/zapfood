@@ -81,9 +81,8 @@ model OrderProduct {
 
 enum OrderStatus {
   PENDING
-  PREPARING
-  READY
-  DELIVERED
+  IN_PREPARATION
+  FINISHED
 }
 
 enum ConsumptionMethod {
