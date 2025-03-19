@@ -57,5 +57,5 @@ await db.order.create({
     restaurantId: restaurant.id,
   },
 });
-redirect(`/${input.slug}/orders`);
+redirect(`/${input.slug}/orders?cpf=${removeCpfPunctuation(input.customerCpf)}`);
 };
