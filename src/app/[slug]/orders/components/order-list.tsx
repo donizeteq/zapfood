@@ -40,7 +40,12 @@ const OrderList = ({ orders}: OrderListProps) => {
     const handleBackClick = () => router.back();
     return ( 
         <div className="space-y-6 p-6">
-            <Button size="icon" variant="secondary" className="rounded-full" onClick={handleBackClick}>
+            <Button
+            size="icon"
+            variant="secondary"
+            className="rounded-full"
+            onClick={handleBackClick}
+            >
                 <ChevronLeftIcon />
             </Button>
             <div className="flex items-center gap-3">
