@@ -9,9 +9,9 @@ import { useParams, useRouter } from "next/navigation";
 interface RestaurantHeaderProps {
     restaurant: Pick<Restaurant, 'name' | 'coverImageUrl'>
 }
-
 const RestaurantHeader = ({ restaurant }: RestaurantHeaderProps) => {
-    const { slug } = useParams<{ slug: string }>();
+    const params = useParams<{ slug: string }>();
+    const slug = params?.slug ?? '';
     const router = useRouter();
     const handleBackClick = () => router.back();
     const handleOrdersClick = () => router.push(`/${slug}/orders`);

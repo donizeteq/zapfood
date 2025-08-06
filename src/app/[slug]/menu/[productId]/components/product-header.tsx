@@ -9,12 +9,12 @@ import { useParams, useRouter } from "next/navigation";
 interface ProductHeaderProps {
     product: Pick<Product, 'name' | 'imageUrl'>;
 }
-
-const productHeader = ({ product }: ProductHeaderProps) => {
-    const { slug } = useParams<{slug: string}>();
-    const router = useRouter()
+const ProductHeader = ({ product }: ProductHeaderProps) => {
+    const params = useParams<{slug: string}>();
+    const slug = params?.slug || '';
+    const router = useRouter();
     const handleBackClick = () => router.back();
-    const handleOrdersClick = () => router.push (`/${slug}/orders`);
+    const handleOrdersClick = () => router.push(`/${slug}/orders`);
     return ( <div className="relative min-h-[300px] w-full">
         <Button
                 variant="secondary"
@@ -44,5 +44,5 @@ const productHeader = ({ product }: ProductHeaderProps) => {
 
         </div> );
 }
- 
-export default productHeader;
+
+export default ProductHeader;
